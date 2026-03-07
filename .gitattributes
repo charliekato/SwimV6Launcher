@@ -1,0 +1,72 @@
+# =========================
+
+# Text files
+
+# =========================
+
+# Git にテキストとして扱わせる
+
+* text=auto
+
+# C# / .NET
+
+*.cs        text diff=csharp
+*.csproj    text
+*.sln       text
+*.props     text
+*.targets   text
+*.config    text
+*.resx      text
+*.xml       text
+*.json      text
+
+# Scripts
+
+*.ps1       text
+*.cmd       text
+*.bat       text
+
+# Markdown
+
+*.md        text
+
+# =========================
+
+# Binary files
+
+# =========================
+
+*.png       binary
+*.jpg       binary
+*.jpeg      binary
+*.gif       binary
+*.ico       binary
+*.pdf       binary
+*.zip       binary
+*.7z        binary
+*.dll       binary
+*.exe       binary
+
+# =========================
+
+# Windows line ending
+
+# =========================
+
+# Visual Studio / C# は CRLF を使う
+
+*.sln       text eol=crlf
+*.cs        text eol=crlf
+*.csproj    text eol=crlf
+*.props     text eol=crlf
+*.targets   text eol=crlf
+*.resx      text eol=crlf
+
+# =========================
+
+# Shell scripts (Linux)
+
+# =========================
+
+*.sh        text eol=lf
+
