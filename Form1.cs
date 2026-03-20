@@ -1,5 +1,6 @@
 using System;
 using System.Xml.Linq;
+using System.IO.Ports;
 using System.Diagnostics;
 using System.Text.RegularExpressions;
 
@@ -14,12 +15,33 @@ namespace SwimV6Launcher
             InitializeComponent();
             string defaultServer = GetCurrentServerName();
             this.textBoxServer.Text = defaultServer;
+            AddCmbBox();
+        }
+        private void AddCmbBox()
+        {
+            foreach (string s in SerialPort.GetPortNames())
+            {
+                comboBoxComPort.Items.Add(s);
+            }
         }
 
         private void buttonRun_Click(object sender, EventArgs e)
         {
             // Update server and password from UI
             ChangeServer(this.textBoxServer.Text, this.textBoxPassword.Text);
+
+            if (this.checkBoxOnline.Checked)
+            {
+                EnableOnline();
+
+                string? portName = this.comboBoxComPort.SelectedItem?.ToString();
+                if (portName == null)
+                {
+                    MessageBox.Show("COMポートを選択してください。", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                ChangePortName(portName);
+            }
             if (checkBoxParaMode.Checked)
             {
                 EnableParaMode();
@@ -49,6 +71,25 @@ namespace SwimV6Launcher
             {
                 Console.WriteLine("起動失敗: " + ex.Message);
             }
+        }
+        static void ChangePortName(string portName)
+        {
+            string ComNo = portName.Replace("COM", ""); // "COM3" → "3"
+            XDocument xml = XDocument.Load(configPath);
+            // Build Port value
+            xml.Root.Element("Online")
+                    .Element("Port")
+                    .Value = ComNo;
+            xml.Save(configPath);
+        }
+        static void EnableOnline()
+        {
+            XDocument xml = XDocument.Load(configPath);
+            // Online → UseFlg を 1 に変更
+            xml.Root.Element("Online")
+                    .Element("UseFlg")
+                    .Value = "1";
+            xml.Save(configPath);
         }
         static void ChangeServer(string newHost, string password)
         {

@@ -1,6 +1,8 @@
+*.sln
 obj/
 
 bin/
 .vs/
 *.user
 *.suo
+*.sln
