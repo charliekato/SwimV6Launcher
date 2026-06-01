@@ -37,6 +37,8 @@
             checkBoxOnline = new CheckBox();
             labelPort = new Label();
             comboBoxComPort = new ComboBox();
+            label2 = new Label();
+            buttonQuit = new Button();
             SuspendLayout();
             // 
             // labelServer
@@ -69,7 +71,7 @@
             // 
             // buttonRun
             // 
-            buttonRun.Location = new Point(250, 314);
+            buttonRun.Location = new Point(178, 314);
             buttonRun.Margin = new Padding(3, 4, 3, 4);
             buttonRun.Name = "buttonRun";
             buttonRun.Size = new Size(101, 56);
@@ -98,7 +100,7 @@
             // checkBoxOnline
             // 
             checkBoxOnline.AutoSize = true;
-            checkBoxOnline.Location = new Point(108, 152);
+            checkBoxOnline.Location = new Point(108, 168);
             checkBoxOnline.Margin = new Padding(3, 4, 3, 4);
             checkBoxOnline.Name = "checkBoxOnline";
             checkBoxOnline.Size = new Size(89, 29);
@@ -109,7 +111,7 @@
             // labelPort
             // 
             labelPort.AutoSize = true;
-            labelPort.Location = new Point(250, 153);
+            labelPort.Location = new Point(250, 169);
             labelPort.Name = "labelPort";
             labelPort.Size = new Size(45, 25);
             labelPort.TabIndex = 7;
@@ -118,10 +120,30 @@
             // comboBoxComPort
             // 
             comboBoxComPort.FormattingEnabled = true;
-            comboBoxComPort.Location = new Point(316, 150);
+            comboBoxComPort.Location = new Point(316, 166);
             comboBoxComPort.Name = "comboBoxComPort";
             comboBoxComPort.Size = new Size(163, 33);
             comboBoxComPort.TabIndex = 8;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(178, 122);
+            label2.Name = "label2";
+            label2.Size = new Size(322, 25);
+            label2.TabIndex = 9;
+            label2.Text = "localhost の場合はPasswordは不要です。";
+            // 
+            // buttonQuit
+            // 
+            buttonQuit.Location = new Point(378, 314);
+            buttonQuit.Margin = new Padding(3, 4, 3, 4);
+            buttonQuit.Name = "buttonQuit";
+            buttonQuit.Size = new Size(101, 56);
+            buttonQuit.TabIndex = 10;
+            buttonQuit.Text = "Quit";
+            buttonQuit.UseVisualStyleBackColor = true;
+            buttonQuit.Click += buttonQuit_Click;
             // 
             // Launcher
             // 
@@ -129,6 +151,8 @@
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(628, 436);
+            Controls.Add(buttonQuit);
+            Controls.Add(label2);
             Controls.Add(comboBoxComPort);
             Controls.Add(labelPort);
             Controls.Add(checkBoxOnline);
@@ -156,5 +180,7 @@
         private CheckBox checkBoxOnline;
         private Label labelPort;
         private ComboBox comboBoxComPort;
+        private Label label2;
+        private Button buttonQuit;
     }
 }

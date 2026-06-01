@@ -97,7 +97,14 @@ namespace SwimV6Launcher
 
             // Build Net value and insert password between "Password=" and ";"
             // Keep existing structure but replace Password value
-            string netValue = $"Server={newHost}\\SQLEXPRESS;User ID=Sw;Password={password};Database=Sw";
+            string netValue;
+            if (newHost=="localhost")
+            {
+                netValue = $"Server={newHost};Database=Sw;Integrated Security=True;TrustServerCertificate=True;";
+            } else
+            {
+                netValue= $"Server={newHost}\\SQLEXPRESS;User ID=Sw;Password={password};Database=Sw";
+            }
 
             xml.Root.Element("Db")
                     .Element("Connect")
@@ -175,6 +182,10 @@ namespace SwimV6Launcher
             }
         }
 
+        private void buttonQuit_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 
 }
