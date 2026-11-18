@@ -65,7 +65,7 @@
             checkBoxParaMode.Margin = new Padding(3, 4, 3, 4);
             checkBoxParaMode.Name = "checkBoxParaMode";
             checkBoxParaMode.Size = new Size(142, 29);
-            checkBoxParaMode.TabIndex = 2;
+            checkBoxParaMode.TabIndex = 5;
             checkBoxParaMode.Text = "障がい者モード";
             checkBoxParaMode.UseVisualStyleBackColor = true;
             // 
@@ -86,7 +86,7 @@
             textBoxPassword.Margin = new Padding(3, 4, 3, 4);
             textBoxPassword.Name = "textBoxPassword";
             textBoxPassword.Size = new Size(305, 31);
-            textBoxPassword.TabIndex = 5;
+            textBoxPassword.TabIndex = 2;
             // 
             // label1
             // 

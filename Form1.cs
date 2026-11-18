@@ -13,6 +13,7 @@ namespace SwimV6Launcher
         public Launcher()
         {
             InitializeComponent();
+            this.AcceptButton = buttonRun;
             string defaultServer = GetCurrentServerName();
             this.textBoxServer.Text = defaultServer;
             AddCmbBox();
@@ -100,7 +101,7 @@ namespace SwimV6Launcher
             string netValue;
             if (newHost=="localhost")
             {
-                netValue = $"Server={newHost};Database=Sw;Integrated Security=True;TrustServerCertificate=True;";
+                netValue = $"Server={newHost}\\SQLEXPRESS;Database=Sw;Integrated Security=True;TrustServerCertificate=True;";
             } else
             {
                 netValue= $"Server={newHost}\\SQLEXPRESS;User ID=Sw;Password={password};Database=Sw";
